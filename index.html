@@ -3,133 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PZE — Portfolio & Digital Archive</title>
+    <title>PZE — ART ARCHIVE</title>
     <link rel="stylesheet" href="./style.css">
-    <!-- 引入極具科技與設計感的字體 -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 引入極致張力的現代字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- 頂部固定導覽列 -->
-    <header class="global-header">
-        <div class="brand">PZE.STUDIO</div>
-        <nav class="nav-links">
-            <a href="#profile">// PROFILE</a>
-            <a href="#experience">// TIMELINE</a>
-            <a href="#video">// REEL</a>
-            <a href="#journal">// JOURNAL</a>
-        </nav>
-        <div class="system-time" id="live-clock">00:00:00 // UTC+8</div>
+    <!-- 固定外框：頂部邊界 -->
+    <header class="art-header">
+        <div class="logo">PZE_PROJECTS</div>
+        <div class="index-total">INDEX // 04_SITES</div>
     </header>
 
-    <!-- 單頁滾動主容器 -->
-    <main class="scroll-container">
-        
-        <!-- SECTION 1：個人核心 Profile -->
-        <section id="profile" class="scroll-section">
-            <div class="grid-box">
-                <div class="box-header">
-                    <span class="box-tag">METADATA // CORE_INFO</span>
+    <!-- 主體藝術畫布：縱向巨大滾動 -->
+    <main class="art-canvas">
+
+        <!-- SECTION 01: INTRO (巨幅文字開場) -->
+        <section class="art-section sec-intro">
+            <div class="huge-title">
+                <span class="stroke-text">PENG</span><br>
+                <span>TZU EN</span>
+            </div>
+            <div class="intro-manifesto">
+                <p class="mono-label">// STATEMENT_01</p>
+                <p class="body-lead">在數位編碼與非傳統動態美學中尋求邏輯的實踐。將科學的可重複性注入藝術創作，透過聲音、動態與底層架構重新定義視覺邊界。</p>
+            </div>
+        </section>
+
+        <!-- SECTION 02: HERO IMAGE (大膽的滿版影像) -->
+        <section class="art-section sec-image">
+            <div class="full-image-wrapper">
+                <img src="./avatar.jpg" alt="PZE Artifact" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop'">
+                <div class="image-caption">// FIG_01 / PERSONAL ARCHIVE (ACTIVE)</div>
+            </div>
+        </section>
+
+        <!-- SECTION 03: TIMELINE (解構式的經歷排版) -->
+        <section class="art-section sec-experience">
+            <div class="section-trigger">CHRONOLOGY</div>
+            <div class="editorial-timeline">
+                
+                <div class="edit-row">
+                    <div class="edit-year">2025</div>
+                    <div class="edit-content">
+                        <h3>WORLD TOURNAMENT CHAMPION & HEAD JUDGE</h3>
+                        <p>主導全球頂級轉筆賽事核心評分基準與技術指標制定，建構動態美學的評判框架。</p>
+                    </div>
                 </div>
-                <div class="box-body profile-layout">
-                    <div class="avatar-wrapper">
-                        <!-- 請放入你的個人照片，放在同個資料夾並命名為 avatar.jpg -->
-                        <img src="./avatar.jpg" alt="彭子恩" onerror="this.src='https://via.placeholder.com/600x600/121212/ffffff?text=PZE'">
+
+                <div class="edit-row">
+                    <div class="edit-year">2021—2026</div>
+                    <div class="edit-content">
+                        <h3>TAIWAN PEN SPINNING ORGANIZATION</h3>
+                        <p>擔任社群最高負責人，推動非傳統手部動態藝術的國內外擴展與實體賽事視覺架構。</p>
                     </div>
-                    <div class="profile-text">
-                        <h1>彭子恩</h1>
-                        <p class="title-sub">// Senior Firmware Engineer & Digital Creator</p>
-                        <p class="bio-desc">專注於底層架構測試與高可靠性運作驗證，同時在數位編碼與非傳統動態美學中尋求邏輯的實踐。透過科學可重複性驗證底層系統，並將相同的邏輯延伸至數位創作。</p>
+                </div>
+
+                <div class="edit-row">
+                    <div class="edit-year">CORE</div>
+                    <div class="edit-content">
+                        <h3>FIRMWARE & LIVE CODING AUDIO</h3>
+                        <p>聚焦於高可靠性底層系統架構驗證，並使用 Strudel 進行現場編碼的低保真與環境音樂（Ambient）創作。</p>
                     </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 04: VIDEO REEL (大膽滿版影片) -->
+        <section class="art-section sec-video">
+            <div class="video-container">
+                <div class="video-overlay-title">REEL_2026</div>
+                <div class="fluid-video">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2：比賽與社群經歷 Timeline -->
-        <section id="experience" class="scroll-section">
-            <div class="grid-box">
-                <div class="box-header">
-                    <span class="box-tag">CHRONOLOGY // LOG_RECORDS</span>
-                </div>
-                <div class="box-body">
-                    <div class="section-label">SELECTED RECOGNITION</div>
-                    <div class="timeline-list">
-                        <div class="timeline-item">
-                            <div class="time-node">2025</div>
-                            <div class="time-content">
-                                <h3>World Tournament Champion / Head Judge</h3>
-                                <p>主導全球頂級賽事核心評分基準與技術指標制定，建構動態美學的評判框架。</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="time-node">2021 — PRESENT</div>
-                            <div class="time-content">
-                                <h3>Taiwan Pen Spinning Organization (TWPS)</h3>
-                                <p>擔任社群最高負責人，負責實體賽事架構推動、品牌視覺與國內外交流拓展。</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="time-node">EXPERTISE</div>
-                            <div class="time-content">
-                                <h3>BIOS & Infrastructure Engineering</h3>
-                                <p>聚焦於 PCIe 容錯機制驗證、自動化工具鏈開發，以及基於 Strudel 的即時編碼音樂創作。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- SECTION 05: WRITINGS (巨幅雜誌感清單) -->
+        <section class="art-section sec-journal">
+            <div class="section-trigger">JOURNAL_ENTRIES</div>
+            <div class="editorial-links">
+                
+                <a href="https://medium.com" target="_blank" class="editorial-item">
+                    <div class="item-meta">01 // 2026.03</div>
+                    <div class="item-title">深入解析 PCIe AER 與 DPC 錯誤處理機制</div>
+                    <div class="item-icon">→</div>
+                </a>
 
-        <!-- SECTION 3：動態影像精選 Video Component -->
-        <section id="video" class="scroll-section">
-            <div class="grid-box">
-                <div class="box-header">
-                    <span class="box-tag">REEL_PREVIEW.MP4</span>
-                </div>
-                <div class="box-body p-0">
-                    <div class="video-wrapper">
-                        <!-- 替換為你的 YouTube 影片 ID -->
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <a href="https://medium.com" target="_blank" class="editorial-item">
+                    <div class="item-meta">02 // 2026.01</div>
+                    <div class="item-title">使用 Strudel 進行 Live Coding 音楽創作指南</div>
+                    <div class="item-icon">→</div>
+                </a>
 
-        <!-- SECTION 4：Medium 誌選 Journal Links -->
-        <section id="journal" class="scroll-section">
-            <div class="grid-box">
-                <div class="box-header">
-                    <span class="box-tag">PUBLICATIONS // WRITINGS</span>
-                </div>
-                <div class="box-body">
-                    <div class="section-label">RECENT JOURNAL ENTRIES</div>
-                    <div class="article-links">
-                        <a href="https://medium.com" target="_blank" class="article-row">
-                            <span class="row-date">2026.03</span>
-                            <span class="row-title">深入解析 PCIe AER 與 DPC 錯誤處理機制</span>
-                            <span class="row-arrow">↗</span>
-                        </a>
-                        <a href="https://medium.com" target="_blank" class="article-row">
-                            <span class="row-date">2026.01</span>
-                            <span class="row-title">使用 Strudel 進行 Live Coding 音楽創作指南</span>
-                            <span class="row-arrow">↗</span>
-                        </a>
-                        <a href="https://medium.com" target="_blank" class="article-row">
-                            <span class="row-date">2025.12</span>
-                            <span class="row-title">談談轉筆運動的物理邏輯與美學評判</span>
-                            <span class="row-arrow">↗</span>
-                        </a>
-                    </div>
-                </div>
+                <a href="https://medium.com" target="_blank" class="editorial-item">
+                    <div class="item-meta">03 // 2025.12</div>
+                    <div class="item-title">談談轉筆運動的物理邏輯與美學評判</div>
+                    <div class="item-icon">→</div>
+                </a>
+
             </div>
         </section>
 
     </main>
 
-    <!-- 固定頁尾 -->
-    <footer class="global-footer">
-        <div>© 2026 PZE. ALL RIGHTS RESERVED.</div>
-        <div class="status-indicator">STATUS: ACTIVE</div>
+    <!-- 固定外框：底部邊界 -->
+    <footer class="art-footer">
+        <div>PZE ARCHIVE © 2026</div>
+        <div id="live-clock">00:00:00</div>
     </footer>
 
     <script src="./script.js"></script>

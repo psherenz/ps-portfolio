@@ -1,17 +1,14 @@
 :root {
-    --bg-main: #0d0d0d;        /* 極致深色背景 */
-    --box-bg: #141414;        /* 區塊卡片的深灰色 */
-    --border-main: #000000;    /* 純黑框線 */
-    --text-main: #ffffff;      /* 純白主文字 */
-    --text-muted: #888888;     /* 低調灰色文字 */
-    --accent: #ffffff;         /* 強調色（可改為螢光綠 #00ff66 等高亮色） */
-    --font-sans: 'Plus Jakarta Sans', "Microsoft JhengHei", sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --bg: #000000;           /* 純黑背景 */
+    --fg: #ffffff;           /* 純白文字 */
+    --muted: #444444;        /* 極暗灰 */
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
 }
 
-/* 讓滾動平滑流暢 */
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg);
 }
 
 * {
@@ -21,292 +18,261 @@ html {
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    padding-top: 60px; /* 給固定導覽列空間 */
-    padding-bottom: 50px; /* 給固定頁尾空間 */
-    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    /* 低調的暗色點陣背景 */
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
 }
 
-/* 頂部深色 Header */
-.global-header {
+/* 固定外框導覽 (Border Layout) */
+.art-header, .art-footer {
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background-color: rgba(13, 13, 13, 0.95);
-    border-bottom: 2px solid var(--border-main);
+    padding: 30px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    z-index: 1000;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    backdrop-filter: blur(5px);
+    z-index: 100;
+    font-size: 12px;
+    letter-spacing: 2px;
+    mix-blend-mode: difference; /* 讓文字滑過影像時會自動反色，高階設計手法 */
 }
 
-.brand {
+.art-header { top: 0; }
+.art-footer { bottom: 0; }
+
+.logo {
     font-weight: 700;
+}
+
+/* 主藝術畫布 */
+.art-canvas {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* 各區域大跨度佈局 */
+.art-section {
+    padding: 160px 0; /* 巨大的上下留白，產生呼吸感 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 巨幅開場標題 */
+.huge-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 12vw, 15rem); /* 隨螢幕縮放的震撼字體 */
+    line-height: 0.85;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    margin-bottom: 60px;
+}
+
+/* 時髦的空心字 */
+.stroke-text {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--fg);
+}
+
+.intro-manifesto {
+    max-width: 600px;
+    align-self: flex-end; /* 故意打破對齊，置右排版 */
+    margin-right: 10%;
+}
+
+.mono-label {
+    color: var(--muted);
+    font-size: 11px;
+    margin-bottom: 16px;
     letter-spacing: 1px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 8px;
-}
-
-.nav-links a {
-    color: var(--text-main);
-    text-decoration: none;
-    padding: 6px 12px;
-    font-weight: 500;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
-}
-
-.nav-links a:hover {
-    background-color: var(--text-main);
-    color: var(--bg-main);
-    border-color: var(--border-main);
-}
-
-/* 一頁式直向滾動容器 */
-.scroll-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 60px; /* 區塊之間的呼吸空間 */
-}
-
-.scroll-section {
-    width: 100%;
-}
-
-/* 深色新粗獷主義卡片 */
-.grid-box {
-    background-color: var(--box-bg);
-    border: 2px solid var(--border-main);
-    /* 在深色背景下，硬陰影改為純黑，或微帶有強烈對比的黑 */
-    box-shadow: 6px 6px 0px var(--border-main); 
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.grid-box:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0px var(--border-main);
-}
-
-.box-header {
-    border-bottom: 2px solid var(--border-main);
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.02);
-}
-
-.box-tag {
+.body-lead {
     font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-}
-
-.box-body {
-    padding: 32px;
-}
-
-.p-0 { padding: 0 !important; }
-
-/* Profile 內部左右排版 */
-.profile-layout {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-}
-
-.avatar-wrapper {
-    width: 200px;
-    height: 200px;
-    flex-shrink: 0;
-    border: 2px solid var(--border-main);
-    overflow: hidden;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.grid-box:hover .avatar-wrapper {
-    filter: grayscale(0%);
-}
-
-.avatar-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.profile-text h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.title-sub {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-}
-
-.bio-desc {
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.8;
     color: #cccccc;
 }
 
-/* 經歷時間軸 */
-.section-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-    letter-spacing: 0.5px;
+/* 大膽的滿版影像區域 */
+.full-image-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 40px 0;
 }
 
-.timeline-list {
+.full-image-wrapper img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    filter: brightness(0.85) contrast(1.1); /* 略微拉高藝術對比 */
+    transition: filter 0.5s ease;
+}
+
+.full-image-wrapper:hover img {
+    filter: brightness(1) contrast(1);
+}
+
+.image-caption {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 16px;
+    text-align: right;
+}
+
+/* 解構式平面時間軸 */
+.section-trigger {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 60px;
+    color: var(--muted);
+}
+
+.editorial-timeline {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
 }
 
-.timeline-item {
+.edit-row {
     display: flex;
-    align-items: flex-start;
+    padding: 40px 0;
+    border-top: 1px solid var(--muted);
 }
 
-.time-node {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 500;
-    min-width: 140px;
-    color: var(--text-main);
+.edit-row:last-child {
+    border-bottom: 1px solid var(--muted);
 }
 
-.time-content h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
+.edit-year {
+    font-size: 24px;
+    font-weight: 700;
+    min-width: 200px;
+    color: var(--fg);
 }
 
-.time-content p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
+.edit-content h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
 }
 
-/* 影片嵌入 */
-.video-wrapper {
+.edit-content p {
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+/* 巨幅影片展示 */
+.video-container {
+    width: 100%;
     position: relative;
-    padding-bottom: 56.25%;
+}
+
+.video-overlay-title {
+    font-family: var(--font-display);
+    font-size: 8vw;
+    font-weight: 800;
+    position: absolute;
+    top: -4vw;
+    left: 40px;
+    z-index: 10;
+    pointer-events: none;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    color: transparent;
+}
+
+.fluid-video {
+    position: relative;
+    padding-bottom: 50%; /* 寬銀幕藝術比例 */
     height: 0;
     width: 100%;
+    background-color: #111;
 }
 
-.video-wrapper iframe {
+.fluid-video iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    filter: grayscale(20%);
 }
 
-/* 誌選穿透清單 */
-.article-links {
+/* 巨幅雜誌感連結清單 */
+.editorial-links {
     display: flex;
     flex-direction: column;
 }
 
-.article-row {
+.editorial-item {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--text-main);
-    padding: 20px 0;
-    border-bottom: 1px solid #222222;
-    transition: all 0.2s ease;
+    color: var(--fg);
+    padding: 30px 0;
+    border-bottom: 1px solid var(--muted);
+    transition: all 0.3s ease;
 }
 
-.article-row:last-child {
-    border-bottom: none;
+.editorial-item:first-child {
+    border-top: 1px solid var(--muted);
 }
 
-.row-date {
-    font-family: var(--font-mono);
+.item-meta {
     font-size: 13px;
-    min-width: 100px;
-    color: var(--text-muted);
+    color: var(--muted);
+    min-width: 150px;
 }
 
-.row-title {
-    font-size: 14px;
-    font-weight: 500;
+.item-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+    font-weight: 700;
     flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    letter-spacing: -0.5px;
+    transition: transform 0.3s ease;
 }
 
-.row-arrow {
-    font-family: var(--font-mono);
-    margin-left: 16px;
-    transition: transform 0.2s ease;
+.item-icon {
+    font-size: 24px;
+    color: var(--muted);
+    transition: all 0.3s ease;
 }
 
-.article-row:hover {
-    color: var(--text-muted);
-    padding-left: 8px;
+/* 懸浮效果：文字變斜體並往右滑動、圖示亮起 */
+.editorial-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding-left: 20px;
 }
 
-.article-row:hover .row-arrow {
-    transform: translate(3px, -3px);
+.editorial-item:hover .item-title {
+    transform: scale(1.02);
+    font-style: italic;
 }
 
-/* 固定頁尾 */
-.global-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-color: var(--bg-main);
-    border-top: 2px solid var(--border-main);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-muted);
-    z-index: 1000;
+.editorial-item:hover .item-icon {
+    color: var(--fg);
+    transform: translateX(10px);
 }
 
-/* RWD 行動裝置優化 */
+/* 手機版響應式調整 */
 @media (max-width: 768px) {
-    body { padding-top: 80px; }
-    .global-header { padding: 0 20px; }
-    .global-header .system-time { display: none; } /* 手機版隱藏時鐘保持簡潔 */
-    .profile-layout { flex-direction: column; text-align: center; }
-    .avatar-wrapper { width: 160px; height: 160px; }
-    .timeline-item { flex-direction: column; gap: 8px; }
-    .time-node { min-width: auto; }
+    .art-header, .art-footer { padding: 20px; }
+    .art-canvas { padding: 0 20px; }
+    .art-section { padding: 80px 0; }
+    .intro-manifesto { margin-right: 0; align-self: flex-start; }
+    .edit-row { flex-direction: column; gap: 16px; }
+    .edit-year { min-width: auto; }
 }
