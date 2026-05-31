@@ -1,14 +1,16 @@
 :root {
-    --bg: #000000;           /* 純黑背景 */
-    --fg: #ffffff;           /* 純白文字 */
-    --muted: #444444;        /* 極暗灰 */
-    --font-display: 'Syne', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --bg-color: #000000;       /* 絕對純黑背景 */
+    --text-pure: #ffffff;      /* 純白文字 */
+    --text-dim: #999999;       /* 內文低調灰 */
+    --text-micro: #555555;     /* 裝飾性微型字暗灰 */
+    --line-color: #222222;     /* 極細微弱分界線 */
+    --font-editorial: 'Inter', "Microsoft JhengHei", sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg);
+    background-color: var(--bg-color);
 }
 
 * {
@@ -18,261 +20,284 @@ html {
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-mono);
+    background-color: var(--bg-color);
+    color: var(--text-pure);
+    font-family: var(--font-editorial);
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
     overflow-x: hidden;
 }
 
-/* 固定外框導覽 (Border Layout) */
-.art-header, .art-footer {
+/* 微型字體與裝飾輔助設定 */
+.micro-text {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.opacity-4 { opacity: 0.4; }
+.opacity-3 { opacity: 0.25; }
+.letter-spacing-large { letter-spacing: 3px; }
+.font-weight-bold { font-weight: 400; letter-spacing: 2px; }
+
+/* 頂部極簡固定導覽列 */
+.global-meta-nav {
     position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 40px;
+    padding: 32px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
-    font-size: 12px;
-    letter-spacing: 2px;
-    mix-blend-mode: difference; /* 讓文字滑過影像時會自動反色，高階設計手法 */
+    z-index: 1000;
+    mix-blend-mode: difference;
 }
 
-.art-header { top: 0; }
-.art-footer { bottom: 0; }
-
-.logo {
-    font-weight: 700;
-}
-
-/* 主藝術畫布 */
-.art-canvas {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-/* 各區域大跨度佈局 */
-.art-section {
-    padding: 160px 0; /* 巨大的上下留白，產生呼吸感 */
-    display: flex;
-    flex-direction: column;
-}
-
-/* 巨幅開場標題 */
-.huge-title {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 12vw, 15rem); /* 隨螢幕縮放的震撼字體 */
-    line-height: 0.85;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-    margin-bottom: 60px;
-}
-
-/* 時髦的空心字 */
-.stroke-text {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--fg);
-}
-
-.intro-manifesto {
-    max-width: 600px;
-    align-self: flex-end; /* 故意打破對齊，置右排版 */
-    margin-right: 10%;
-}
-
-.mono-label {
-    color: var(--muted);
-    font-size: 11px;
-    margin-bottom: 16px;
+.main-logo {
+    font-family: var(--font-editorial);
+    font-weight: 300;
+    font-size: 14px;
     letter-spacing: 1px;
 }
 
-.body-lead {
-    font-family: var(--font-mono);
-    font-size: 16px;
-    line-height: 1.8;
-    color: #cccccc;
+.deco-dot {
+    color: var(--text-pure);
+    margin: 0 4px;
 }
 
-/* 大膽的滿版影像區域 */
-.full-image-wrapper {
-    width: 100%;
-    position: relative;
-    margin: 40px 0;
+/* 主畫布：極大跨度的留白與呼吸感 */
+.minimal-canvas {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 200px 40px 150px 40px; /* 大面積上下留白 */
 }
 
-.full-image-wrapper img {
-    width: 100%;
-    height: 80vh;
-    object-fit: cover;
-    filter: brightness(0.85) contrast(1.1); /* 略微拉高藝術對比 */
-    transition: filter 0.5s ease;
-}
-
-.full-image-wrapper:hover img {
-    filter: brightness(1) contrast(1);
-}
-
-.image-caption {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 16px;
-    text-align: right;
-}
-
-/* 解構式平面時間軸 */
-.section-trigger {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -1px;
-    margin-bottom: 60px;
-    color: var(--muted);
-}
-
-.editorial-timeline {
-    width: 100%;
+.editorial-sec {
+    margin-bottom: 140px; /* 區塊與區塊之間極度疏離，產生高級感 */
     display: flex;
     flex-direction: column;
 }
 
-.edit-row {
-    display: flex;
-    padding: 40px 0;
-    border-top: 1px solid var(--muted);
-}
-
-.edit-row:last-child {
-    border-bottom: 1px solid var(--muted);
-}
-
-.edit-year {
-    font-size: 24px;
-    font-weight: 700;
-    min-width: 200px;
-    color: var(--fg);
-}
-
-.edit-content h3 {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-}
-
-.edit-content p {
-    font-size: 14px;
-    color: #aaaaaa;
-    line-height: 1.7;
-    max-width: 700px;
-}
-
-/* 巨幅影片展示 */
-.video-container {
-    width: 100%;
+/* Section 1: Intro */
+.intro-block {
     position: relative;
+    padding-left: 40px;
 }
 
-.video-overlay-title {
-    font-family: var(--font-display);
-    font-size: 8vw;
-    font-weight: 800;
+.ornament-number {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-micro);
     position: absolute;
-    top: -4vw;
-    left: 40px;
-    z-index: 10;
-    pointer-events: none;
-    text-transform: uppercase;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-    color: transparent;
+    left: 0;
+    top: 4px;
 }
 
-.fluid-video {
+.manifesto-text {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--text-pure);
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.micro-meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-left: 1px solid var(--line-color);
+    padding-left: 16px;
+}
+
+/* Section 2: Visual Hero Frame */
+.image-container-frame {
+    width: 100%;
+}
+
+.micro-frame-label {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-color);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    color: var(--text-micro);
+}
+
+.fine-art-image {
+    width: 100%;
+    filter: grayscale(100%) contrast(1.05); /* 沉穩低對比灰階 */
+    transition: filter 0.4s ease;
+}
+
+.fine-art-image:hover {
+    filter: grayscale(0%) contrast(1);
+}
+
+.fine-art-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 70vh;
+}
+
+.micro-caption {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    margin-top: 12px;
+}
+
+/* Section 3: Chronology (聶式書籍感經歷排版) */
+.block-title-micro {
+    border-bottom: 1px solid var(--line-color);
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+    color: var(--text-dim);
+}
+
+.nieh-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-row {
+    display: flex;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-row:first-child {
+    padding-top: 0;
+}
+
+.row-meta-left {
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mono-year {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.micro-tag-status {
+    font-family: var(--font-mono);
+    font-size: 8px;
+    color: var(--text-micro);
+    letter-spacing: 0.5px;
+}
+
+.row-content-right h3 {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.detail-p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Section 4: Video Container */
+.embedded-video-frame {
     position: relative;
-    padding-bottom: 50%; /* 寬銀幕藝術比例 */
+    padding-bottom: 56.25%;
     height: 0;
     width: 100%;
-    background-color: #111;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
 }
 
-.fluid-video iframe {
+.embedded-video-frame:hover {
+    filter: grayscale(0%);
+}
+
+.embedded-video-frame iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    filter: grayscale(20%);
 }
 
-/* 巨幅雜誌感連結清單 */
-.editorial-links {
+/* Section 5: Publications Links */
+.bookcase-list {
     display: flex;
     flex-direction: column;
 }
 
-.editorial-item {
+.book-row {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--fg);
-    padding: 30px 0;
-    border-bottom: 1px solid var(--muted);
-    transition: all 0.3s ease;
+    color: var(--text-pure);
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.25s ease;
 }
 
-.editorial-item:first-child {
-    border-top: 1px solid var(--muted);
+.book-index-micro {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-micro);
+    min-width: 60px;
 }
 
-.item-meta {
+.book-title-main {
     font-size: 13px;
-    color: var(--muted);
-    min-width: 150px;
-}
-
-.item-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
-    font-weight: 700;
+    font-weight: 300;
     flex: 1;
-    letter-spacing: -0.5px;
-    transition: transform 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.item-icon {
-    font-size: 24px;
-    color: var(--muted);
-    transition: all 0.3s ease;
+.book-date-mono {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-micro);
+    margin-left: 20px;
 }
 
-/* 懸浮效果：文字變斜體並往右滑動、圖示亮起 */
-.editorial-item:hover {
-    background-color: rgba(255, 255, 255, 0.02);
-    padding-left: 20px;
+/* 懸浮微動效：文字極其精細地變淡並產生些微橫向位移 */
+.book-row:hover {
+    padding-left: 8px;
 }
 
-.editorial-item:hover .item-title {
-    transform: scale(1.02);
-    font-style: italic;
+.book-row:hover .book-title-main {
+    color: var(--text-dim);
 }
 
-.editorial-item:hover .item-icon {
-    color: var(--fg);
-    transform: translateX(10px);
+/* 固定頁尾 */
+.global-meta-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 32px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to top, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
 }
 
-/* 手機版響應式調整 */
+/* RWD 平板與手機版優化 */
 @media (max-width: 768px) {
-    .art-header, .art-footer { padding: 20px; }
-    .art-canvas { padding: 0 20px; }
-    .art-section { padding: 80px 0; }
-    .intro-manifesto { margin-right: 0; align-self: flex-start; }
-    .edit-row { flex-direction: column; gap: 16px; }
-    .edit-year { min-width: auto; }
+    .global-meta-nav, .global-meta-footer { padding: 20px; }
+    .global-meta-nav .micro-text { display: none; } /* 行動端隱藏多餘文字裝飾 */
+    .minimal-canvas { padding: 140px 24px 100px 24px; }
+    .editorial-sec { margin-bottom: 90px; }
+    .timeline-row { flex-direction: column; gap: 12px; }
+    .row-meta-left { min-width: auto; flex-direction: row; gap: 12px; align-items: center; }
 }

@@ -1,4 +1,4 @@
-function initArtClock() {
+function initMinimalClock() {
     const clockElement = document.getElementById('live-clock');
     if (!clockElement) return;
 
@@ -12,11 +12,11 @@ function initArtClock() {
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
 
-        clockElement.textContent = `${hours}:${minutes}:${seconds} // TPE`;
+        clockElement.textContent = `${hours}:${minutes}:${seconds} TPE`;
     }
 
     setInterval(updateTime, 1000);
     updateTime();
 }
 
-document.addEventListener('DOMContentLoaded', initArtClock);
+document.addEventListener('DOMContentLoaded', initMinimalClock);
