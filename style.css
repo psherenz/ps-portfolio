@@ -144,6 +144,15 @@ h2.section-title {
     display: block;
 }
 
+.experience-sub-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-sub-item span {
+    display: block;
+}
+
 /* --- VIDEO / YouTube --- */
 .section-video {
     padding: 120px 0;
