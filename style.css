@@ -153,38 +153,38 @@ h2.section-title {
     display: block;
 }
 
-/* --- VIDEO / YouTube --- */
-.section-video {
+/* --- Project / YouTube --- */
+.section-project {
     padding: 120px 0;
     border-top: 1px solid var(--border-color);
 }
 
-.video-meta-grid {
+.project-meta-grid {
     display: grid;
     grid-template-columns: 100px 1fr; 
     margin-bottom: 40px;
 }
 
-.video-subtitle {
+.project-subtitle {
     font-family: 'Courier Prime', monospace;
     font-size: var(--font-size-base);
     color: var(--text-muted);
 }
 
-.video-content-title {
+.project-content-title {
     font-weight: 500;
     display: block;
     margin-bottom: 4px;
 }
 
-.video-content-desc {
+.project-content-desc {
     font-size: 10px;
     color: var(--text-muted);
     display: block;
     max-width: 600px;
 }
 
-.video-container {
+.project-container {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
@@ -192,7 +192,7 @@ h2.section-title {
     filter: grayscale(20%);
 }
 
-.video-container iframe {
+.project-container iframe {
     width: 100%;
     height: 100%;
     display: block;
@@ -313,7 +313,7 @@ footer p {
     .experience-item {
         grid-template-columns: 100px 1fr;
     }
-    .video-meta-grid {
+    .project-meta-grid {
         grid-template-columns: 100px 1fr;
     }
     .article-card {
