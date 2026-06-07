@@ -197,42 +197,91 @@ h2.section-title {
     margin-bottom: 100px;
 }
 
+.articles-grid {
+    display: flex;
+    flex-direction: column;
+}
+
 .article-link {
     text-decoration: none;
     color: var(--text-color);
     display: block;
 }
 
-.article-row {
+.article-card {
     display: grid;
-    grid-template-columns: 80px 1fr auto;
-    padding: 25px 0;
+    grid-template-columns: 100px 1fr 280px;
+    align-items: center;
+    padding: 30px 0;
     border-bottom: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    gap: 20px;
+    transition: all 0.4s ease;
 }
 
-.article-date {
+.article-card-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card-date {
     font-family: 'Courier Prime', monospace;
+    display: block;
+}
+
+.article-card-num {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
     color: var(--text-muted);
+    display: block;
 }
 
-.article-name {
+.article-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card-title {
+    font-weight: 500;
     font-size: var(--font-size-base);
-    font-weight: 300;
+    display: block;
+    margin-bottom: 4px;
 }
 
-.article-arrow {
-    font-size: 12px;
-    transition: transform 0.3s ease;
+.article-card-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    display: block;
+    max-width: 500px;
 }
 
-.article-link:hover .article-row {
-    padding-left: 10px;
+.article-card-link {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+}
+
+.article-card-image-wrapper {
+    width: 280px;
+    height: 158px;
+    overflow: hidden;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    border-radius: 6px;
+}
+
+.article-card-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-card-link:hover .article-card {
     background-color: #fafafa;
+    padding-left: 10px;
 }
 
-.article-link:hover .article-arrow {
-    transform: translate(3px, -3px);
+.article-card-link:hover .article-card-image-wrapper {
+    filter: grayscale(0%);
 }
 
 /* --- FOOTER --- */
@@ -258,7 +307,10 @@ footer p {
     .video-meta-grid {
         grid-template-columns: 100px 1fr;
     }
-    .article-row {
-        grid-template-columns: 60px 1fr auto;
+    .article-card {
+        grid-template-columns: 80px 1fr;
+    }
+    .article-card-image-wrapper {
+        display: none;
     }
 }
