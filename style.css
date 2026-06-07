@@ -1,227 +1,191 @@
+/* --- Basic --- */
 :root {
-    --bg-color: #000000;       /* 絕對純黑背景 */
-    --text-pure: #ffffff;      /* 純白文字 */
-    --text-dim: #999999;       /* 內文低調灰 */
-    --text-micro: #555555;     /* 裝飾性微型字暗灰 */
-    --line-color: #222222;     /* 極細微弱分界線 */
-    --font-editorial: 'Inter', "Microsoft JhengHei", sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --text-muted: #888888;
+    --border-color: #e5e5e5;
+    --font-size-base: 11px;
+    --font-size-title: 13px;
+    --font-size-large: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
     background-color: var(--bg-color);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-pure);
-    font-family: var(--font-editorial);
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.01em;
-    overflow-x: hidden;
+    font-family: 'Space Grotesk', 'Noto Serif TC', 'Courier New', sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    letter-spacing: 0.08em;
+    padding: 0 40px;
 }
 
-/* 微型字體與裝飾輔助設定 */
-.micro-text {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-.opacity-4 { opacity: 0.4; }
-.opacity-3 { opacity: 0.25; }
-.letter-spacing-large { letter-spacing: 3px; }
-.font-weight-bold { font-weight: 400; letter-spacing: 2px; }
-
-/* 頂部極簡固定導覽列 */
-.global-meta-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 32px 50px;
+/* --- Header --- */
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    mix-blend-mode: difference;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.main-logo {
-    font-family: var(--font-editorial);
-    font-weight: 300;
-    font-size: 14px;
-    letter-spacing: 1px;
+.brand {
+    font-weight: 500;
+    letter-spacing: 0.15em;
 }
 
-.deco-dot {
-    color: var(--text-pure);
-    margin: 0 4px;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 25px;
+    font-size: 10px;
+    transition: color 0.3s;
 }
 
-/* 主畫布：極大跨度的留白與呼吸感 */
-.minimal-canvas {
-    max-width: 800px;
+.nav-links a:hover {
+    color: var(--text-muted);
+}
+
+/* --- Common Block --- */
+main {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 200px 40px 150px 40px; /* 大面積上下留白 */
 }
 
-.editorial-sec {
-    margin-bottom: 140px; /* 區塊與區塊之間極度疏離，產生高級感 */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Section 1: Intro */
-.intro-block {
-    position: relative;
-    padding-left: 40px;
-}
-
-.ornament-number {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-micro);
-    position: absolute;
-    left: 0;
-    top: 4px;
-}
-
-.manifesto-text {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 2;
-    color: var(--text-pure);
-    margin-bottom: 40px;
-    text-align: justify;
-}
-
-.micro-meta-block {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    border-left: 1px solid var(--line-color);
-    padding-left: 16px;
-}
-
-/* Section 2: Visual Hero Frame */
-.image-container-frame {
-    width: 100%;
-}
-
-.micro-frame-label {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--line-color);
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    color: var(--text-micro);
-}
-
-.fine-art-image {
-    width: 100%;
-    filter: grayscale(100%) contrast(1.05); /* 沉穩低對比灰階 */
-    transition: filter 0.4s ease;
-}
-
-.fine-art-image:hover {
-    filter: grayscale(0%) contrast(1);
-}
-
-.fine-art-image img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    max-height: 70vh;
-}
-
-.micro-caption {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    margin-top: 12px;
-}
-
-/* Section 3: Chronology (聶式書籍感經歷排版) */
-.block-title-micro {
-    border-bottom: 1px solid var(--line-color);
-    padding-bottom: 12px;
-    margin-bottom: 40px;
-    color: var(--text-dim);
-}
-
-.nieh-timeline {
-    display: flex;
-    flex-direction: column;
-}
-
-.timeline-row {
-    display: flex;
-    padding: 32px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.timeline-row:first-child {
-    padding-top: 0;
-}
-
-.row-meta-left {
-    min-width: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.mono-year {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    font-weight: 300;
-}
-
-.micro-tag-status {
-    font-family: var(--font-mono);
-    font-size: 8px;
-    color: var(--text-micro);
-    letter-spacing: 0.5px;
-}
-
-.row-content-right h3 {
-    font-size: 13px;
+h2.section-title {
+    font-size: var(--font-size-title);
     font-weight: 400;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
-
-.detail-p {
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.8;
-    font-weight: 300;
-}
-
-/* Section 4: Video Container */
-.embedded-video-frame {
+    letter-spacing: 0.2em;
+    margin-bottom: 40px;
+    color: var(--text-color);
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    width: 100%;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
 }
 
-.embedded-video-frame:hover {
+.section-hero {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.hero-image-wrapper:hover {
     filter: grayscale(0%);
 }
 
-.embedded-video-frame iframe {
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-meta {
+    width: 100%;
+    max-width: 600px;
+    text-align: right;
+}
+
+.en-sub {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.section-experience {
+    padding: 120px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.experience-year {
+    font-family: 'Courier Prime', monospace;
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+}
+
+.experience-title {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.experience-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    display: block;
+}
+
+/* --- VIDEO / YouTube --- */
+.section-video {
+    padding: 120px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.video-meta-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr; 
+    margin-bottom: 40px; /* 與下方影片拉開高質感留白 */
+}
+
+.video-subtitle {
+    font-family: 'Courier Prime', monospace;
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+}
+
+.video-content-title {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.video-content-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    display: block;
+    max-width: 600px; /* 限制內文寬度，避免文字拉得太長，破壞留白感 */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    height: 0;
+    filter: grayscale(20%);
+}
+
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -229,75 +193,75 @@ body {
     height: 100%;
 }
 
-/* Section 5: Publications Links */
-.bookcase-list {
-    display: flex;
-    flex-direction: column;
+/* --- ARTICLE / Medium --- */
+.section-article {
+    padding: 120px 0;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 100px;
 }
 
-.book-row {
-    display: flex;
-    align-items: center;
+.article-link {
     text-decoration: none;
-    color: var(--text-pure);
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.25s ease;
+    color: var(--text-color);
+    display: block;
 }
 
-.book-index-micro {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--text-micro);
-    min-width: 60px;
+.article-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
-.book-title-main {
-    font-size: 13px;
+.article-date {
+    font-family: 'Courier Prime', monospace;
+    color: var(--text-muted);
+}
+
+.article-name {
+    font-size: var(--font-size-base);
     font-weight: 300;
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.book-date-mono {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-micro);
-    margin-left: 20px;
+.article-arrow {
+    font-size: 12px;
+    transition: transform 0.3s ease;
 }
 
-/* 懸浮微動效：文字極其精細地變淡並產生些微橫向位移 */
-.book-row:hover {
-    padding-left: 8px;
+.article-link:hover .article-row {
+    padding-left: 10px;
+    background-color: #fafafa;
 }
 
-.book-row:hover .book-title-main {
-    color: var(--text-dim);
+.article-link:hover .article-arrow {
+    transform: translate(3px, -3px);
 }
 
-/* 固定頁尾 */
-.global-meta-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 32px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: linear-gradient(to top, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
+/* --- FOOTER --- */
+footer {
+    padding: 50px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
 }
 
-/* RWD 平板與手機版優化 */
+footer p {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+}
+
 @media (max-width: 768px) {
-    .global-meta-nav, .global-meta-footer { padding: 20px; }
-    .global-meta-nav .micro-text { display: none; } /* 行動端隱藏多餘文字裝飾 */
-    .minimal-canvas { padding: 140px 24px 100px 24px; }
-    .editorial-sec { margin-bottom: 90px; }
-    .timeline-row { flex-direction: column; gap: 12px; }
-    .row-meta-left { min-width: auto; flex-direction: row; gap: 12px; align-items: center; }
+    body {
+        padding: 0 20px;
+    }
+    .experience-item {
+        grid-template-columns: 100px 1fr;
+    }
+    .video-meta-grid {
+        grid-template-columns: 100px 1fr;
+    }
+    .article-row {
+        grid-template-columns: 60px 1fr auto;
+    }
 }
