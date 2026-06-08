@@ -166,7 +166,6 @@ h2.section-title {
     font-size: 9px;
     letter-spacing: 1.5px;
     color: var(--text-muted);
-    text-transform: uppercase;
     white-space: nowrap;
     padding-top: 4px;
     user-select: none;
