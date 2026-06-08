@@ -131,7 +131,7 @@ h2.section-title {
     font-size: var(--font-size-base);
     color: var(--text-muted);
     user-select: none;
-    opacity: 0.5;
+    opacity: 0.7;
     transition: opacity 0.2s ease, color 0.2s ease;
 }
 
@@ -145,6 +145,13 @@ h2.section-title {
     font-size: 10px;
     color: var(--text-muted);
     display: block;
+}
+
+.experience-rank {
+    font-size: 10px;
+    color: var(--text-muted);
+    user-select: none;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .experience-sub-item {
@@ -181,6 +188,11 @@ h2.section-title {
 .experience-item:hover .experience-year {
     opacity: 1;
     color: var(--text-color);
+}
+
+.experience-sub-item:hover .experience-rank {
+    opacity: 1;
+    color: #0080ff;
 }
 
 .experience-sub-item span {
