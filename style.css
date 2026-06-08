@@ -199,6 +199,33 @@ h2.section-title {
     margin-bottom: 40px;
 }
 
+.project-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-date {
+    font-family: 'Courier Prime', monospace;
+    color: var(--text-muted);
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.project-meta-grid:hover .project-date {
+    opacity: 1;
+    color: var(--text-color);
+}
+
+.project-num {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
 .project-subtitle {
     font-family: 'Courier Prime', monospace;
     font-size: var(--font-size-base);
@@ -268,14 +295,24 @@ h2.section-title {
 
 .article-card-date {
     font-family: 'Courier Prime', monospace;
-    display: block;
+    color: var(--text-muted);
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.article-card:hover .article-card-date {
+    opacity: 1;
+    color: var(--text-color);
 }
 
 .article-card-num {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
     color: var(--text-muted);
-    display: block;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .article-card-content {
