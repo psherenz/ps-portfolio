@@ -130,6 +130,9 @@ h2.section-title {
     font-family: 'Courier Prime', monospace;
     font-size: var(--font-size-base);
     color: var(--text-muted);
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .experience-title {
@@ -146,7 +149,39 @@ h2.section-title {
 
 .experience-sub-item {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.item-text-group {
+    display: flex;
     flex-direction: column;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.experience-flag-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-top: 4px;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.experience-sub-item:hover .experience-flag-label {
+    opacity: 1;
+    color: #0080ff;
+}
+
+.experience-item:hover .experience-year {
+    opacity: 1;
+    color: var(--text-color);
 }
 
 .experience-sub-item span {
