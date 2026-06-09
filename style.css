@@ -103,6 +103,44 @@ h2.section-title {
     text-align: right;
 }
 
+.hero-links-icons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.meta-icon-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-color);
+    text-decoration: none;
+    opacity: 0.3;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.meta-icon-link:hover {
+    opacity: 1;
+}
+
+.icon-svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+.material-symbols-outlined {
+    font-size: 16px !important;
+    color: currentColor;
+}
+
+.micro-icon-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    font-weight: 200;
+}
+
 .en-sub {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
