@@ -105,8 +105,30 @@ h2.section-title {
 
 .hero-links-icons {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.social-cluster {
+    display: flex;
     gap: 24px;
     align-items: center;
+}
+
+.micro-email-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #111111;
+    text-decoration: none;
+    opacity: 0.3;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    user-select: none;
+}
+
+.micro-email-label:hover {
+    opacity: 1;
 }
 
 .meta-icon-link {
