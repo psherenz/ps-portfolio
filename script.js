@@ -52,3 +52,27 @@ if (dot && outline) {
         });
     });
 }
+
+const emailBtn = document.getElementById('about-copy-email-btn');
+const copyToast = document.getElementById('about-copy-toast');
+
+if (emailBtn && copyToast) {
+    emailBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // 阻止 <a> 標籤的預設跳轉或重新整理行為
+        
+        const emailText = emailBtn.querySelector('.about-email-text').innerText;
+        
+        // 呼叫瀏覽器剪貼簿 API
+        navigator.clipboard.writeText(emailText).then(() => {
+            // 顯示 [ COPIED! ]
+            copyToast.classList.add('active');
+            
+            // 2 秒後自動隱藏
+            setTimeout(() => {
+                copyToast.classList.remove('active');
+            }, 2000);
+        }).catch(err => {
+            console.error('無法複製文字: ', err);
+        });
+    });
+}

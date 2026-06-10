@@ -147,6 +147,24 @@ h2.section-title {
 .about-email-row {
     display: flex;
     align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.about-copy-toast {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: #0080ff;
+    letter-spacing: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    user-select: none;
+}
+
+.about-copy-toast.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .about-micro-email-label {
