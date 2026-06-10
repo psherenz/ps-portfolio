@@ -469,6 +469,48 @@ footer p {
     transform: translateY(4px);
 }
 
+/* --- Custom Cursor --- */
+@media (min-width: 769px) {
+    /* 隱藏原本的預設游標 */
+    * {
+        cursor: none !important;
+    }
+
+    /* 核心黑點 */
+    .custom-cursor-dot {
+        width: 2px;
+        height: 2px;
+        background-color: var(--text-title);
+        position: fixed;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+    }
+
+    /* 跟隨外圈 */
+    .custom-cursor-outline {
+        width: 16px;
+        height: 16px;
+        border: 1px solid var(--text-title);
+        position: fixed;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        /* 控制外圈移動時的平滑跟隨感 */
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* 當滑鼠移到連結上時的放大狀態 */
+    .custom-cursor-outline.cursor-hover {
+        width: 32px;
+        height: 32px;
+        background-color: rgba(0, 0, 0, 0.05); /* 輕微的灰色內襯 */
+        border-color: var(--text-muted);
+    }
+}
+
 @media (max-width: 768px) {
     body {
         padding: 0 20px;
@@ -484,5 +526,8 @@ footer p {
     }
     .article-card-image-wrapper {
         display: none;
+    }
+    .custom-cursor-dot, .custom-cursor-outline {
+        display: none !important;
     }
 }
