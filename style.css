@@ -82,7 +82,7 @@ h2.section-title {
     position: relative;
 }
 
-/* --- About --- */
+/* --- ABOUT --- */
 
 .section-about {
     padding: 100px 0;
@@ -154,8 +154,8 @@ h2.section-title {
 .about-copy-tag {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
-    color: var(--text-muted);
-    opacity: 0.4;
+    color: var(--text-color);
+    opacity: 0.5;
     margin-left: 4px;
     transition: opacity 0.2s ease, color 0.2s ease;
     user-select: none;
@@ -164,7 +164,7 @@ h2.section-title {
 .about-copy-toast {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
-    color: #0080ff;
+    color: #ff0000;
     letter-spacing: 1px;
     opacity: 0;
     visibility: hidden;
@@ -181,7 +181,7 @@ h2.section-title {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
     letter-spacing: 1px;
-    color: #111111;
+    color: var(--text-color);
     text-decoration: none;
     opacity: 0.5;
     transition: opacity 0.2s ease, color 0.2s ease;
@@ -202,10 +202,10 @@ h2.section-title {
 
 #about-copy-email-btn:hover .about-copy-tag {
     opacity: 1;
-    color: #0080ff; /* 展現互動藍色，亦可維持 var(--text-color) */
+    color: #0080ff;
 }
 
-/* --- Experience --- */
+/* --- EXPERIENCE --- */
 
 .section-experience {
     padding: 120px 0;
@@ -297,7 +297,7 @@ h2.section-title {
     display: block;
 }
 
-/* --- Project --- */
+/* --- PROJECT --- */
 
 .section-project {
     padding: 120px 0;
@@ -473,7 +473,7 @@ footer p {
     letter-spacing: 0.2em;
 }
 
-/* --- FLOAT BACK TO TOP --- */
+/* --- Float Back To Top --- */
 
 #back-to-top {
     position: fixed;
@@ -503,13 +503,12 @@ footer p {
 }
 
 /* --- Custom Cursor --- */
+
 @media (min-width: 769px) {
-    /* 隱藏原本的預設游標 */
     * {
         cursor: none !important;
     }
 
-    /* 核心黑點 */
     .custom-cursor-dot {
         width: 2px;
         height: 2px;
@@ -521,7 +520,6 @@ footer p {
         z-index: 10000;
     }
 
-    /* 跟隨外圈 */
     .custom-cursor-outline {
         width: 16px;
         height: 16px;
@@ -531,15 +529,13 @@ footer p {
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
-        /* 控制外圈移動時的平滑跟隨感 */
         transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
     }
 
-    /* 當滑鼠移到連結上時的放大狀態 */
     .custom-cursor-outline.cursor-hover {
         width: 32px;
         height: 32px;
-        background-color: rgba(0, 0, 0, 0.05); /* 輕微的灰色內襯 */
+        background-color: rgba(0, 0, 0, 0.05);
         border-color: var(--text-muted);
     }
 }

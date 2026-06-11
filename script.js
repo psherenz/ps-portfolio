@@ -22,26 +22,21 @@ function scrollToTop() {
     });
 }
 
-// --- 自訂滑鼠游標監聽 ---
 const dot = document.querySelector('.custom-cursor-dot');
 const outline = document.querySelector('.custom-cursor-outline');
 
 if (dot && outline) {
-    // 更新游標位置
     window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
 
-        // 核心點直接跟隨，不延遲
         dot.style.left = `${posX}px`;
         dot.style.top = `${posY}px`;
 
-        // 外圈跟隨
         outline.style.left = `${posX}px`;
         outline.style.top = `${posY}px`;
     });
 
-    // 偵測所有可點擊元素，觸發放大效果
     const hoverElements = document.querySelectorAll('a, button, .article-card-link');
     hoverElements.forEach(elem => {
         elem.addEventListener('mouseenter', () => {
@@ -58,24 +53,18 @@ const copyToast = document.getElementById('about-copy-toast');
 
 if (emailBtn && copyToast) {
     emailBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // 阻止 <a> 標籤的預設跳轉或重新整理行為
+        e.preventDefault();
         
         const emailText = emailBtn.querySelector('.about-email-text').innerText;
-        //if (!emailTarget) return;
         
-        //const emailText = emailTarget.innerText.trim();
-        
-        // 呼叫瀏覽器剪貼簿 API
         navigator.clipboard.writeText(emailText).then(() => {
-            // 顯示 [ COPIED! ]
             copyToast.classList.add('active');
             
-            // 2 秒後自動隱藏
             setTimeout(() => {
                 copyToast.classList.remove('active');
             }, 2000);
         }).catch(err => {
-            console.error('無法複製文字: ', err);
+            console.error('Error: ', err);
         });
     });
 }
