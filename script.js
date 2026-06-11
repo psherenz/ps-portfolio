@@ -61,6 +61,9 @@ if (emailBtn && copyToast) {
         e.preventDefault(); // 阻止 <a> 標籤的預設跳轉或重新整理行為
         
         const emailText = emailBtn.querySelector('.about-email-text').innerText;
+        //if (!emailTarget) return;
+        
+        //const emailText = emailTarget.innerText.trim();
         
         // 呼叫瀏覽器剪貼簿 API
         navigator.clipboard.writeText(emailText).then(() => {

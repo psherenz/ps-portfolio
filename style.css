@@ -151,6 +151,16 @@ h2.section-title {
     position: relative;
 }
 
+.about-copy-tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    opacity: 0.4;
+    margin-left: 4px;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    user-select: none;
+}
+
 .about-copy-toast {
     font-family: 'Courier Prime', monospace;
     font-size: 9px;
@@ -188,6 +198,11 @@ h2.section-title {
 
 .about-micro-email-label:hover {
     opacity: 1;
+}
+
+#about-copy-email-btn:hover .about-copy-tag {
+    opacity: 1;
+    color: #0080ff; /* 展現互動藍色，亦可維持 var(--text-color) */
 }
 
 /* --- Experience --- */
