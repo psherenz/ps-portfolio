@@ -473,6 +473,27 @@ footer p {
     letter-spacing: 0.2em;
 }
 
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    /*font-family: 'Courier Prime', monospace;*/
+    font-size: 9px;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    opacity: 0.4;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
 /* --- Float Back To Top --- */
 
 #back-to-top {
